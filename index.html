@@ -175,12 +175,12 @@
   <div class="wrap">
     <div class="kicker">Medio Maratón La Resiliencia · Puerto Escondido</div>
     <h1>Carey &amp; Su<br>run 21K.</h1>
-    <p>Sunday 20 December 2026, gun at 6:00 AM, cross-country course. Eleven weeks, two runs and a swim a week, one finish line, together.</p>
+    <p>Sunday 20 December 2026, gun at 6:00 AM, cross-country course. Reset on Oct 23 to start from today. Two runs and a swim a week, run/walk allowed, one finish line, together.</p>
     <div class="count">
       <div><b id="cDays">–</b><span>days to go</span></div>
       <div><b id="cWeek">–</b><span>current week</span></div>
       <div><b id="cDone">0</b><span>sessions done</span></div>
-      <div><b>2:15</b><span>goal, together</span></div>
+      <div><b>2:30</b><span>goal, together</span></div>
     </div>
   </div>
 </header>
@@ -204,7 +204,7 @@
 
 <section style="padding-top:20px"><div class="wrap reveal">
   <div class="eyebrow">The story in one picture</div>
-  <h2 class="h2">The long run climbs to 18K</h2>
+  <h2 class="h2">The long run climbs to 16K</h2>
   <p class="lede">Each bar is one Saturday long run. Every fourth week drops back so your legs absorb the work. Tap a bar to jump to that week.</p>
   <div class="journey">
     <svg id="chart" viewBox="0 0 900 300"></svg>
@@ -236,8 +236,8 @@
   <div class="pace">
     <div class="tcard">
       <span class="tag sun">Goal time</span>
-      <h3 id="goalOut">2:15:00</h3>
-      <input type="range" id="goal" min="110" max="165" value="135">
+      <h3 id="goalOut">2:30:00</h3>
+      <input type="range" id="goal" min="110" max="180" value="150">
       <p style="color:var(--muted);font-size:14px;margin:8px 0 0">Pace: <b id="paceOut" style="color:var(--foam)"></b>. Trail plus heat costs 15–30 s/km against road. Start the first 3K 15 s/km slower than goal.</p>
     </div>
     <div class="tcard">
@@ -276,48 +276,48 @@ const WEEKS = [
    [1,'quality','Sprints 6 × 30 s','2K easy jog, 6 × 30 s fast with 90 s walk, 2K easy. Fast, not all-out.'],
    [3,'swim','Swim 500 m','Playa Coral.'],
    [5,'long','Long run 10K','Easy. Note average pace and HR; this is your baseline.']]},
- {mon:'2026-10-19',ch:0,t:'Find the gears',km:12,note:'First long run over 10K. Bring a gel to practise.',s:[
-   [1,'quality','6 × 400 m','2K warm-up. 6 × 400 m at about 5:15/km, 90 s jog between. 1K cool-down.'],
+ {mon:'2026-10-19',ch:0,t:'Fresh start',km:6,note:'Plan reset on Oct 23 to where you really are: longest recent run is about 4 km. Run/walk is allowed all the way to race day. If legs go heavy at 1 km, slow to a shuffle, don\'t stop.',s:[
+   [1,'easy','Easy 3K','Done or skipped, either is fine. The real start is Saturday.'],
+   [3,'swim','Swim 500 m','Playa Coral. Skip if the left shoulder hurts.'],
+   [5,'long','Long run 6K, run/walk','Run 4 min, walk 1 min. Slow enough to talk the whole way.']]},
+ {mon:'2026-10-26',ch:0,t:'Build the habit',km:8,note:'Same easy effort, a little longer. Banana an hour before, no pouch 3 hours before.',s:[
+   [1,'easy','Easy 4K, run/walk','Run 5 min, walk 1 min. Metronome at 155.'],
    [3,'swim','Swim 500 m','Playa Coral.'],
-   [5,'long','Long run 12K','Gel at km 6. Easy pace.']]},
- {mon:'2026-10-26',ch:0,t:'Down week, hit the dirt',km:9,down:true,note:'Lighter week. The long run goes on dirt or sand to start learning the cross-country feel.',s:[
-   [1,'easy','5K easy + 6 strides','Strides = 20 s smooth fast, walk back.'],
+   [5,'long','Long run 8K, run/walk','Run 5 min, walk 1 min. Water if it goes past 45 min.']]},
+ {mon:'2026-11-02',ch:1,t:'Into double digits',km:10,note:'First 10K. Bring a gel to practise.',s:[
+   [1,'quality','5K with 5 × 1 min pickups','2K easy, then 5 × 1 min a bit quicker with 2 min easy between, then easy to 5K.'],
+   [3,'swim','Swim 600 m','Playa Coral.'],
+   [5,'long','Long run 10K','Run 8 min, walk 1 min. Gel at km 6.']]},
+ {mon:'2026-11-09',ch:1,t:'Down week, hit the dirt',km:8,down:true,note:'Lighter week so the legs absorb the build. Long run on dirt or sand to learn the cross-country feel.',s:[
+   [1,'easy','5K easy + 4 strides','Strides = 20 s smooth fast, walk back.'],
    [3,'swim','Swim 500 m','Playa Coral.'],
-   [5,'long','Trail 9K','Dirt road or beach. Short quick steps on soft ground.']]},
- {mon:'2026-11-02',ch:1,t:'Build begins',km:13,note:'Build chapter: Tuesdays get longer. Keep long runs truly easy.',s:[
-   [1,'quality','5 × 800 m','2K warm-up. 5 × 800 m at about 5:20/km, 2 min jog. 1K cool-down.'],
+   [5,'long','Trail 8K','Dirt road or beach. Short quick steps on soft ground.']]},
+ {mon:'2026-11-16',ch:1,t:'Dress rehearsal #1',km:12,key:true,note:'Saturday is the full race-morning routine at 6 AM: 4:30 wake, race breakfast, race kit, gels. Decide your shoes after this one.',s:[
+   [1,'quality','Hills 6 × 45 s','2K warm-up. 6 × 45 s up a steady hill (Bacocho streets), walk down. 2K cool-down.'],
    [3,'swim','Swim 600 m','Playa Coral.'],
-   [5,'long','Long run 13K','Gels at km 6 and 12.']]},
- {mon:'2026-11-09',ch:1,t:'Hills and a fast finish',km:15,note:'Cross-country courses climb. Tuesday is hills; Saturday ends at race pace.',s:[
-   [1,'quality','Hills 8 × 60 s','Find a steady hill (Bacocho streets). 60 s up hard, jog down. 2K warm-up and cool-down.'],
+   [5,'key','6 AM rehearsal 12K','Exactly the race-day routine. Weigh yourselves before and after.','06:00']]},
+ {mon:'2026-11-23',ch:2,t:'Long and steady',km:14,note:'Keep the long run truly easy. Walk breaks are a strategy, not a failure.',s:[
+   [1,'quality','Tempo 2 × 10 min','2K warm-up. 2 × 10 min at a comfortably hard pace, 3 min easy between. 1K cool-down.'],
    [3,'swim','Swim 600 m','Playa Coral.'],
-   [5,'long','Long run 15K, last 3K at race pace','12K easy, then 3K at goal pace (about 6:15/km).']]},
- {mon:'2026-11-16',ch:1,t:'Dress rehearsal #1',km:16,key:true,note:'Saturday is the full race-morning routine at 6 AM: 4:30 wake, race breakfast, race kit, gels. Decide your shoes after this one.',s:[
-   [1,'quality','Tempo 3 × 1.6K','2K warm-up. 3 × 1.6K at about 5:50/km, 2 min jog. 1K cool-down.'],
-   [3,'swim','Swim 600 m','Playa Coral.'],
-   [5,'key','6 AM rehearsal 16K','Exactly the race-day routine. Weigh yourselves before and after.','06:00']]},
- {mon:'2026-11-23',ch:1,t:'Down week, trail again',km:12,down:true,note:'Absorb the build. Easy on the body, keep the habit.',s:[
-   [1,'easy','6K easy + 6 strides','Relaxed.'],
+   [5,'long','Long run 14K','Gels at km 6 and 12.']]},
+ {mon:'2026-11-30',ch:2,t:'Peak week',km:16,key:true,note:'The biggest week. Finish the 16K and race-day adrenaline plus walk breaks carry you through 21K.',s:[
+   [1,'quality','Tempo 20 min','2K warm-up. 20 min steady at goal effort. 1K cool-down.'],
    [3,'swim','Swim 500 m','Playa Coral.'],
-   [5,'long','Trail 12K','Dirt and sand. Practise walking the steep bits fast.']]},
- {mon:'2026-11-30',ch:2,t:'Peak week',km:18,key:true,note:'The biggest week. Finish the 18K and you know you can do 21K; race-day adrenaline covers the last 3K.',s:[
-   [1,'quality','Tempo 25 min','2K warm-up. 25 min continuous at about 5:50/km. 1K cool-down.'],
-   [3,'swim','Swim 600 m','Playa Coral.'],
-   [5,'key','6 AM rehearsal 18K','Full race routine. Run it together at goal pace for the middle 8K.','06:00']]},
- {mon:'2026-12-07',ch:3,t:'Taper',km:12,note:'Less volume, same sharpness. You will feel restless. That is normal. Go lighter on leg day.',s:[
-   [1,'quality','4 × 1K at race pace','2K warm-up. 4 × 1K at goal pace, 90 s jog. Feels easy; that is the point.'],
+   [5,'key','6 AM rehearsal 16K','Full race routine, same breakfast, same gels, same shoes.','06:00']]},
+ {mon:'2026-12-07',ch:3,t:'Taper',km:10,note:'Less volume, same rhythm. You will feel restless. That is normal. Go lighter on leg day.',s:[
+   [1,'quality','5K with 4 × 2 min at goal pace','Feels easy; that is the point.'],
    [3,'swim','Swim 400 m','Easy.'],
-   [5,'long','Long run 12K','Easy. Last long run.']]},
+   [5,'long','Long run 10K','Easy. Last long run.']]},
  {mon:'2026-12-14',ch:3,t:'Race week',km:21.1,race:true,note:'No leg day this week. Sleep is the training now: in bed early from Wednesday.',s:[
-   [1,'easy','5K with 4 × 1 min pickups','Pickups at goal pace.'],
+   [1,'easy','4K with 4 × 1 min pickups','Pickups at goal pace.'],
    [3,'swim','Swim 300 m or rest','Loosen up only.'],
    [5,'easy','15 min shakeout','Very easy. Pick up race kit. Lay out everything tonight.'],
-   [6,'race','RACE DAY · 21.1K','6:00 AM start. Run together. See the race-day walkthrough below.','06:00']]},
+   [6,'race','RACE DAY · 21.1K','6:00 AM start. Run together, run/walk as planned. See the race-day walkthrough below.','06:00']]},
 ];
 const CHAPTERS = [
  ['Base','Oct 5 – Nov 1','Build the habit, find your pace, get used to the heat.'],
  ['Build','Nov 2 – Nov 29','Longer runs, hills, the first 6 AM rehearsal.'],
- ['Peak','Nov 30 – Dec 6','The 18K. The hardest week of the plan.'],
+ ['Peak','Nov 30 – Dec 6','The 16K. The hardest week of the plan.'],
  ['Taper & Race','Dec 7 – Dec 20','Freshen up, then go get the medal.'],
 ];
 const RACESTEPS = [
