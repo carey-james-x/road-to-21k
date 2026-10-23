@@ -188,7 +188,7 @@
 <section><div class="wrap reveal">
   <div class="first">
     <div class="n">0</div>
-    <div><h3>Sign up both of you this week</h3><p>Phase 1 is 450 MXN (first 100 runners), then 500, then 520 in Nov–Dec. Register by phone or WhatsApp: <b>954 147 48 07</b>. Ask them for the route map and where packet pickup is.</p></div>
+    <div><h3>You're both registered ✓</h3><p>Signed up Oct 6: Carey is folio 98, Su is folio 99, 6 AM start block. Organizers: <b>954 147 48 07</b>. Ask them for the route map and where packet pickup is.</p></div>
     <button class="ck" data-id="register" style="width:auto;padding:0 16px;border-color:#0d1a28;color:#0d1a28">Done</button>
   </div>
 </div></section>
@@ -205,7 +205,7 @@
 <section style="padding-top:20px"><div class="wrap reveal">
   <div class="eyebrow">The story in one picture</div>
   <h2 class="h2">The long run climbs to 16K</h2>
-  <p class="lede">Each bar is one Saturday long run. Every fourth week drops back so your legs absorb the work. Tap a bar to jump to that week.</p>
+  <p class="lede">Each bar is one Saturday long run. The lighter week (Nov 14) lets your legs absorb the work. Tap a bar to jump to that week.</p>
   <div class="journey">
     <svg id="chart" viewBox="0 0 900 300"></svg>
     <div class="legend"><span><i style="background:#f5b83d"></i>long run</span><span><i style="background:#5aa9e6"></i>down week</span><span><i style="background:#ffd98a"></i>6 AM dress rehearsal</span><span><i style="background:#fff"></i>race</span><span>▲ you are here</span></div>
@@ -268,14 +268,6 @@
 const RACE = new Date('2026-12-20T06:00:00-06:00');
 // Each week: Monday date, chapter, title, note, long km, flags, sessions [dayOffset from Monday, type, title, detail, time]
 const WEEKS = [
- {mon:'2026-10-05',ch:0,t:'Wake the legs',km:9,note:'Su is in CDMX until about Oct 13, so this week is solo. Su: same sessions in Chapultepec.',s:[
-   [0,'easy','8K easy','The run moved from Saturday. Conversation pace, no watch-staring.'],
-   [3,'swim','Swim 500 m','Playa Coral. Easy, smooth strokes.'],
-   [5,'long','Long run 9K','Easy the whole way. Take water if it goes past 45 min.']]},
- {mon:'2026-10-12',ch:0,t:'Back together',km:10,note:'Su is back. Your first runs side by side: set the pace for the slower one that day.',s:[
-   [1,'quality','Sprints 6 × 30 s','2K easy jog, 6 × 30 s fast with 90 s walk, 2K easy. Fast, not all-out.'],
-   [3,'swim','Swim 500 m','Playa Coral.'],
-   [5,'long','Long run 10K','Easy. Note average pace and HR; this is your baseline.']]},
  {mon:'2026-10-19',ch:0,t:'Fresh start',km:6,note:'Plan reset on Oct 23 to where you really are: longest recent run is about 4 km. Run/walk is allowed all the way to race day. If legs go heavy at 1 km, slow to a shuffle, don\'t stop.',s:[
    [1,'easy','Easy 3K','Done or skipped, either is fine. The real start is Saturday.'],
    [3,'swim','Swim 500 m','Playa Coral. Skip if the left shoulder hurts.'],
@@ -315,13 +307,13 @@ const WEEKS = [
    [6,'race','RACE DAY · 21.1K','6:00 AM start. Run together, run/walk as planned. See the race-day walkthrough below.','06:00']]},
 ];
 const CHAPTERS = [
- ['Base','Oct 5 – Nov 1','Build the habit, find your pace, get used to the heat.'],
- ['Build','Nov 2 – Nov 29','Longer runs, hills, the first 6 AM rehearsal.'],
- ['Peak','Nov 30 – Dec 6','The 16K. The hardest week of the plan.'],
+ ['Base','Oct 19 – Nov 1','Start from where you are: run/walk, build the habit, get used to the heat.'],
+ ['Build','Nov 2 – Nov 22','First 10K, the trail week and the first 6 AM rehearsal.'],
+ ['Peak','Nov 23 – Dec 6','14K, then the 16K rehearsal. The hardest weeks of the plan.'],
  ['Taper & Race','Dec 7 – Dec 20','Freshen up, then go get the medal.'],
 ];
 const RACESTEPS = [
- ['Fri 18','Packet pickup + kit check',['Pick up bibs and chips (confirm the place when you register).','Lay out kit: shoes, socks, shorts, top, cap, bib with pins, watch charged.','Gels: 2 each, plus 1 spare.']],
+ ['Fri 18','Packet pickup + kit check',['Pick up bibs and chips (confirm the place with the organizers).','Lay out kit: shoes, socks, shorts, top, cap, bib with pins, watch charged.','Gels: 2 each, plus 1 spare.']],
  ['Sat 19','Carb + salt day',['Normal breakfast and lunch, a bit more rice or bread than usual.','Dinner by 7 PM: the chicken, rice and broccoli bake (your pre-race favourite).','2–3 L water across the day, with 1 electrolyte.','Alarms set, lights out by 9:30.']],
  ['4:30','Wake up',['Water + electrolytes (500 ml) straight away.','Coffee if you normally have it.']],
  ['4:45','Race breakfast',['Toast or bagel + banana + honey or jam. The same thing you ate on Nov 21 and Dec 5.','Done eating by 5:00.']],
@@ -377,7 +369,7 @@ function render(){
 function renderToday(){
   const w=WEEKS[curWeek];
   const days=Math.max(0,Math.ceil((RACE-new Date())/864e5));
-  $('#cDays').textContent=days; $('#cWeek').textContent=`${curWeek+1}/11`;
+  $('#cDays').textContent=days; $('#cWeek').textContent=`${curWeek+1}/${WEEKS.length}`;
   const todays=ALL.find(s=>key(s.date)===todayKey);
   const next=ALL.find(s=>key(s.date)>todayKey);
   $('#todayCard').innerHTML = todays
@@ -400,7 +392,7 @@ function progress(){
 
 // ---------- chart ----------
 function chart(){
-  const W=900,H=300,pl=40,pb=40,pt=20,bw=52,gap=(W-pl-20-bw*11)/10,max=22;
+  const W=900,H=300,pl=40,pb=40,pt=20,bw=52,gap=(W-pl-20-bw*WEEKS.length)/(WEEKS.length-1),max=22;
   let g=`<line x1="${pl}" x2="${W-10}" y1="${H-pb}" y2="${H-pb}" stroke="rgba(255,255,255,.15)"/>`;
   [5,10,15,20].forEach(v=>{const y=H-pb-(v/max)*(H-pb-pt);g+=`<line x1="${pl}" x2="${W-10}" y1="${y}" y2="${y}" stroke="rgba(255,255,255,.05)"/><text x="${pl-8}" y="${y+4}" fill="#7f93a8" font-size="11" text-anchor="end">${v}K</text>`});
   WEEKS.forEach((w,i)=>{
