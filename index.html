@@ -9,7 +9,7 @@ header{padding:28px 18px 8px;max-width:820px;margin:auto}h1{margin:0;font-size:2
 nav{position:sticky;top:0;background:rgba(11,27,46,.95);border-bottom:1px solid var(--line);z-index:5}nav .wrap{display:flex;gap:6px;padding:10px 18px;overflow-x:auto}
 nav a{color:var(--txt);text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:999px;font-size:14px;white-space:nowrap}
 h2{margin:34px 0 6px;font-size:22px}.lead{color:var(--mut);margin:0 0 14px}
-.today{background:linear-gradient(135deg,#17406a,#11263d);border:1px solid var(--sky);border-radius:14px;padding:16px}.today h3{margin:0 0 6px}
+.today{background:linear-gradient(135deg,#17406a,#11263d);border:1px solid var(--sky);border-radius:14px;padding:16px}.today .tcard{background:#0b1b2e;margin-top:12px}.today h3{margin:0 0 6px}
 table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;font-size:14px}td,th{padding:10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}th{color:var(--mut);font-size:12px;text-transform:uppercase}
 td.d{font-weight:800;color:var(--sun)}tr.on td{background:#17406a}
 .week{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0}.week.on{border-color:var(--sky);box-shadow:0 0 0 2px rgba(90,169,230,.3)}.week.past{opacity:.5}
@@ -73,5 +73,11 @@ const dow=(today.getDay()+6)%7; document.querySelector(`tr[data-day="${dow}"]`)?
 const w=WEEK[dow]; let extra=''; if(cur>=0){const r=RUNS[cur]; if(dow==1) extra=r[2]; if(dow==3) extra=r[3]; if(dow==5) extra=r[4];}
 if(today.getTime()===race.getTime()) document.getElementById('todayBox').innerHTML='<h3>🏁 RACE DAY</h3><p>6:00 AM start. Go get it, together.</p>';
 else document.getElementById('todayBox').innerHTML=`<h3>${w[0]} · ${w[1]}</h3>${extra?'<p><b>Run:</b> '+extra+'</p>':''}<p><b>Carey:</b> ${w[2]}<br><b>Su:</b> ${w[3]}</p>`;
+
+(function(){const box=document.getElementById('todayBox'); if(!box||today.getTime()===race.getTime()) return;
+ const d=WEEK[dow][0]; let added=0;
+ [['C','Carey'],['S','Su']].forEach(([id,who])=>{document.querySelectorAll('#who'+id+' .wcard').forEach(c=>{const h=c.querySelector('h3').textContent; if(h.startsWith(d+' · '+who+' ·')){ if(cur>=RUNS.length-2 && h.includes('Optional')) return; const k=c.cloneNode(true); k.classList.add('tcard'); box.appendChild(k); added++; }});});
+ if(!added && dow!==1 && dow!==3 && dow!==5) box.insertAdjacentHTML('beforeend','<p>No gym today.</p>');
+})();
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('.who').forEach(x=>x.classList.toggle('on',x.id==='who'+b.dataset.w));});
 </script></body></html>
